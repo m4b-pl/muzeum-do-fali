@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><%= __('Websitename') %></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="hrefAnchor" data-url="/user/new" data-method="GET"><%= __('Create user') %></a></li>
+            <li><a class="hrefAnchor" data-url="/user/list" data-method="GET"><%= __('List users') %></a></li>
+            <li role="separator" class="divider"></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-form navbar-right" id="loginDiv"  <% if (session.User) { %>style="display:none" <% } %>>
+      <form role="login" id="loginForm" method="POST" action="/session/create">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="<%=__('email')%>" name="email">
+          <input type="text" class="form-control" placeholder="<%=__('password')%>" name="password">
+        </div>
+        <a id="loginFormSubmit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;<small><%=__('Log-in')%></small></a>
+      </form>
+    </div>
+    <div class="navbar-right" id="logoutDiv" <% if (!session.User) { %> style="display:none" <% } %>>
+      <form class="navbar-form" action="/session/destroy" method="POST">
+      <i class="fa fa-user hrefButton" data-method="GET" data-url="/user/me"></i>
+      &nbsp;&nbsp;&nbsp;
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-out hrefButton"></span></button> 
+      &nbsp;&nbsp;&nbsp;
+      </form>
+    </div>
+  </div>
+</nav>

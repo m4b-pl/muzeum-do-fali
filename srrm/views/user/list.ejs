@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h3><%=__('Users')%>&nbsp;&nbsp;<a class="hrefAnchor btn btn-default" data-url="/user/new" data-method="GET" alt="<%= __('Create user')%>"><span class="glyphicon glyphicon-plus"></span></a></h3>
+		<table class="table table-condensed" id="users">
+			<thead>
+				<th><%=__('Name')%></th>
+				<th><%=__('Email')%></th>
+				<th><%=__('Level')%></th>
+				<th><%=__('Mofified')%></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<% _.each(users, function (user){ %>
+					<%-partial(process.cwd()+'/assets/templates/user_row.ejs', {user:user}) %>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+</div>

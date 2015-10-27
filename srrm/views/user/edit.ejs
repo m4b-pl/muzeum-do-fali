@@ -1,0 +1,89 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+				<form action="/user/update/<%= user.id%>" method="POST" class="form form-horizontal form-EditUser">
+					<div class="row">
+						<div class="col-sm-11">
+							<h2 class="formHeader"><%=__('Modify Account')%></h2>
+						</div>
+						<div class="col-sm-1 editFormButton" style="display:none; padding-top:30px;">
+							<span class="glyphicon glyphicon-edit text-info"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="name" class="col-sm-2 control-label"><%=__('Name')%></label>
+						<div class="col-sm-10">
+							<input type="text" value="<%= user.name %>" class="form-control" name="name" id="name" placeholder="imię..." data-validation="length" data-validation-length="min5" 
+						data-validation-error-msg="Co najmniej 5 znaków">
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="name" class="col-sm-2 control-label"><%=__('Level')%></label>
+						<div class="col-sm-10">
+						<select class="form-control" name="level" id="level">
+							<option value="1" <%if(user.level == 1) {%> selected <%}%>>1</option>
+							<option value="2" <%if(user.level == 2) {%> selected <%}%>>2</option>
+							<option value="3" <%if(user.level == 3) {%> selected <%}%>>3</option>
+							<option value="4" <%if(user.level == 4) {%> selected <%}%>>4</option>
+							<option value="5" <%if(user.level == 5) {%> selected <%}%>>5</option>
+							<option value="6" <%if(user.level == 6) {%> selected <%}%>>6</option>
+							<option value="7" <%if(user.level == 7) {%> selected <%}%>>7</option>
+							<option value="8" <%if(user.level == 8) {%> selected <%}%>>8</option>
+							<option value="9" <%if(user.level == 9) {%> selected <%}%>>9</option>
+							<option value="10" <%if(user.level == 10) {%> selected <%}%>>10</option>
+						</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label"><%=__('Email')%></label>
+						<div class="col-sm-10">
+						<input type="email" value="<%=user.email %>" class="form-control" data-validation-error-msg="niepoprawny format adresu email"  name="email" id="email" placeholder="adres e-mail...">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<a class="btn btn-default submit has-spinner"><%=__('Save data')%>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok text-muted okSign"></span><span class="spinner"><i class="icon-spin icon-refresh"></i></span></a>
+						</div>
+					</div>
+					
+				</form>
+
+				<form action="/user/changePassword/<%= user.id%>" method="POST" class="form form-horizontal form-EditUser">
+					<div class="row">
+						<div class="col-sm-11">
+							<h2 class="formHeader"><%=__('Change password')%></h2>
+						</div>
+						<div class="col-sm-1 editFormButton" style="display:none; padding-top:30px;">
+							<span class="glyphicon glyphicon-edit text-info"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label"><%=__('Current password')%></label>
+						<div class="col-sm-10">
+						<input type="password" data-validation="length" data-validation-length="min5" data-validation-error-msg="hasło musi mieć minimum 5 znaków" class="form-control" name="oldpassword" id="oldpassword" placeholder="stare hasło...">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-2 control-label"><%=__('New Password')%></label>
+						<div class="col-sm-10">
+						<input type="password" data-validation="length" data-validation-length="min5" data-validation-error-msg="hasło musi mieć minimum 5 znaków" class="form-control" name="password" id="password" placeholder="hasło...">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="confirmPassword" class="col-sm-2 control-label"><%=__('Repeat New Password')%></label>
+						<div class="col-sm-10">
+						<input type="password" class="form-control" name="confirmPassword" id="confirmPassword" data-validation="confirmation" data-validation-confirm="password" data-validation-error-msg="Niezgodne powtórzenie" placeholder="powtórz hasło...">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<a class="btn btn-default submit has-spinner"><%=__('Save password')%>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok text-muted okSign"></span><span class="spinner"><i class="icon-spin icon-refresh"></i></span></a>
+						</div>
+					</div>
+				</form>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>

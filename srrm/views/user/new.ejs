@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<form action="/user/create" method="POST" class="form form-NewUser">
+				<div class="row">
+					<div class="col-sm-11">
+						<h2 class="formHeader"><%=__('Create Account')%></h2>
+					</div>
+					<div class="col-sm-1 editFormButton" style="display:none; padding-top:30px;">
+						<span class="glyphicon glyphicon-edit text-info"></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control" name="name" id="name" placeholder="<%=__('Names')%>" data-validation="length" data-validation-length="min5" 
+					data-validation-error-msg="Co najmniej 5 znaków">
+				</div>
+				<div class="form-group">
+					<input type="email" class="form-control" data-validation-error-msg="niepoprawny format adresu email"  name="email" id="email" placeholder="<%=__('E-mail address')%>">
+				</div>
+				<div class="form-group">
+					<input type="password" data-validation="length" data-validation-length="min5" data-validation-error-msg="hasło musi mieć minimum 6 znaków" class="form-control" name="password" id="password" placeholder="<%=__('Password')%>">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name="confirmPassword" id="confirmPassword" data-validation="confirmation" data-validation-confirm="password" data-validation-error-msg="Niezgodne powtórzenie" placeholder="<%=__('Repeat Password')%>">
+				</div>
+				<a class="btn btn-default submit"><%=__('Create User')%>&nbsp;&nbsp;<span class="glyphicon glyphicon-ok text-muted okSign"></span></a>
+			</form>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+		<h3>
+		<%= user.name %>
+		<% if (user.admin) { %>
+				&nbsp;-&nbsp; ADMIN
+		<% } %>
+		</h3>
+		<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+		<h3>Email:</h3>
+		<%= user.email %>
+		<%= abracadabra %>
+		<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+		<h3>Dodano:</h3>
+		<%= user.createdAt %>
+		<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+		<h3>Id:</h3>
+		<%= user.id %>
+		<hr />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<a href="/user/edit/<%= user.id%>" class="btn btn-sm btn-warning">Edit</a>
+		</div>
+	</div>
+</div>
