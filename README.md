@@ -9,7 +9,7 @@ i potem 'rabbitmq-plugins enable rabbitmq_management' itd.:
 
 # działania
 1. 'nodejs sender.js' wysyła ciurkiem 1000 wiadomości (losowy string) do RMQ.
-2. sailjs konsumuje wiadomości i acknowledżuje w odstępach 100ms.     
+2. sailjs konsumuje wiadomości i acknowledżuje w odstępach 10ms.     
 3. podgląd stanu kolejki './rabbitmqadmin list queues'.
 4. podgląd ostatnich wpisów kolejki './rabbitmqadmin get queue=HeartBeat requeue=true count=100'.
 5. do 3. i 4. jest też fajne GUI: 'http://localhost:15672/' (guest/guest przy domyślnej instalacji)
