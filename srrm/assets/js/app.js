@@ -133,8 +133,10 @@
    
   });
   $(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
+    $('#scene1').html(thrownError);
     console.log(thrownError);
     activateAjaxElements();
+
     $('input, radio, checkbox, textarea, select').on('focus', function () {
       $(this).parents('.form-group').removeClass('has-error');
       var $form = $(this).parents('form');

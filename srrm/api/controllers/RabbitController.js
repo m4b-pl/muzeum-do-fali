@@ -28,7 +28,7 @@ function createWorker(conn){
 		ch.prefetch(1);
 		console.tlg("[*] Listening as a worker for " + q);
 		ch.consume(q, function(msg) {
-			var secs = 100;
+			var secs = 10;
 			if (parsing == 0){
 				parsing = 1;
 				console.tlg(msg.content.toString());

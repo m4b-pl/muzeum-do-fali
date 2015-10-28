@@ -56,4 +56,10 @@ process.chdir(__dirname);
 
   // Start server
   sails.lift(rc('sails'));
+
+  //GARBAGE COLLECTOR - (DARK)FORCE MODE BB
+  // setInterval(function(){
+  //   console.log( 'NOW gc .......' );
+  //   global.gc();
+  // }, 10000);
 })();

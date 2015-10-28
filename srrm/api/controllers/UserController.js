@@ -18,6 +18,15 @@ module.exports = {
 		res.redirect('/user/edit/'+req.session.User.id);
 	},
 
+	edit: function(req, res){
+		User.findOne(req.session.User.id, function(err, user){
+			if (err) return next(err);
+			res.view({
+				user: user,
+				layout:null
+			});
+		});
+	},
 	changePassword: function(req, res, next){
 		var bcrypt = require('bcrypt');
 		User.findOne(req.param('id'), function(err, user){
@@ -76,35 +85,8 @@ module.exports = {
 		});
 	},
 
-	xxx: function(req, res, next){
-		
-		
-		User.findOne(req.param('id'), function(err, user){
-			if (err) return next(err);
-			res.view({
-				user: user,
-				abracadabra:'abracadabra'
-			});
-		});
-	},
-
-	edit: function(req, res, next){
-		
-		
-		User.findOne(req.param('id'), function(err, user){
-			if (err) return next(err);
-			if (!user) return next('Brak użytkownika - edit');
-			setTimeout(function(){
-				res.view({
-					user: user,
-					layout: null
-				});
-			}, 1000);
-		});
-	},
-
 	destroy: function(req, res, next){
-		PermissionCheckService.checkLevel(req, 3)
+		PermissionCheckService.checkLevel(req, 9)
 		.then(function(user){
 			if (!user) return res.forbidden();
 
